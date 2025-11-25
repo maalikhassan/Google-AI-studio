@@ -67,3 +67,11 @@ fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:
   .catch((error) => console.error(error));
 
   
+  JS modules - can export class/objects , variables, methods and then import them in other files
+  
+  SPA = Single Page Application - web application that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server
+  we use modules like this above to keep our code organized and maintainable in SPA
+
+  tensorflow.js can use to integrate AI/ML 
+  n8n workflow automation being talked about in the industry these days
+  face emotion = face recognition API 
