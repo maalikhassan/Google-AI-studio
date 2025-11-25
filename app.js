@@ -1,7 +1,5 @@
 function search() {
-
-
-    let txtPrompt = document.getElementById("txtPrompt").value;
+  let txtPrompt = document.getElementById("txtPrompt").value;
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -30,7 +28,9 @@ function search() {
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
     requestOptions
   )
-    .then((response) => response.json())
-    .then((result) => console.log(result.candidates[0].content.parts[0].text))
-    .catch((error) => console.error(error));
-}
+    .then((response) => response.json()).then((result) => {
+            document.getElementById("lblResult").innerHTML = marked.parse(result.candidates[0].content.parts[0].text);
+            console.log(result.candidates[0].content.parts[0].text);
+
+        })
+        .catch((error) => console.error(error));}
