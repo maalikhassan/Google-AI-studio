@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google AI studio</title>
+    <title>AI Chat Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="chat-wrapper">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1> AI Chat Studio</h1>
+                    <p>Powered by Gemini API</p>
+                </div>
+            </div>
+        </header>
 
-    <p id="result"></p>
-     <div id="lblResult"></div>
-    <input type="text" id="txtPrompt">
-    <button id="btnSend" onclick="search()">send</button>
+        <!-- Chat Area -->
+        <main class="chat-container">
+            <div id="lblResult" class="messages-area" aria-live="polite" aria-label="Chat messages">
+                <div class="welcome-message">
+                    <h2>Welcome!</h2>
+                    <p>Start a conversation with AI</p>
+                </div>
+            </div>
+        </main>
 
-    <script src="app.js"></script>
+        <!-- Input Area -->
+        <footer class="chat-footer">
+            <form class="input-form" onsubmit="event.preventDefault(); search();">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="txtPrompt" 
+                        class="chat-input" 
+                        placeholder="Ask me anything..."
+                        rows="1"
+                        aria-label="Chat message input">
+                    </textarea>
+                    <button id="btnSend" class="send-btn" type="submit" title="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

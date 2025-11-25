@@ -3,7 +3,7 @@ function search() {
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("X-goog-api-key", "AIzaSyDUftPaIxInykUGoLD7mLWQgHbBoeSi9Eo");
+  myHeaders.append("X-goog-api-key", "AIzaSyDIA2ABvOI0yjnr6MPAmGvpoCDJsVZy0RE");
 
   const raw = JSON.stringify({
     contents: [
@@ -24,13 +24,12 @@ function search() {
     redirect: "follow",
   };
 
-  fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-    requestOptions
-  )
-    .then((response) => response.json()).then((result) => {
-            document.getElementById("lblResult").innerHTML = marked.parse(result.candidates[0].content.parts[0].text);
-            console.log(result.candidates[0].content.parts[0].text);
+  fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      document.getElementById("lblResult").innerHTML = marked.parse(result.candidates[0].content.parts[0].text);
+      console.log(result.candidates[0].content.parts[0].text);
+    })
+    .catch((error) => console.error(error));
+}
 
-        })
-        .catch((error) => console.error(error));}
