@@ -31,6 +31,6 @@ function search() {
     requestOptions
   )
     .then((response) => response.json())
-    .then((result) => console.log(result))
+    .then((result) => console.log(result.candidates[0].content.parts[0].text))
     .catch((error) => console.error(error));
 }
